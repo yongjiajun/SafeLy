@@ -24,13 +24,7 @@ export default class Register extends Component{
         this.setState({toChild: true});
     }
     onInputChange(event) {
-        this.setState(prevState => ({
-                usr: {
-                    ...prevState.usr,
-                    [event.target.name]: event.target.value
-                }
-            })
-        );
+        this.setState({[event.target.name]: event.target.value});
     }
     render() {
         if(this.state.toChild == false) {
