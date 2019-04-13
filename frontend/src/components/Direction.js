@@ -45,7 +45,14 @@ export default class Direction extends Component{
                     
 
                 </div>
-                <MapDirection/>
+                <MapDirection
+                    googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpjsS_Dw5a70HuU5LXjVuQHjPmc7jxc4E"
+                    loadingElement={<div style={{ height: `100%` }} />}
+                    containerElement={<div style={{ height: `400px` }} />}
+                    mapElement={<div style={{ height: `100%` }} />}
+                    center={{ lat: -24.9923319, lng: 135.2252427 }}
+                    zoom={9}
+                />
             </div>
         )
     }
