@@ -6,13 +6,13 @@ class Student:
         self.requester = requester
         
     def switchStatus(self):
-         if self.verify == True:
+        if self.verify == True:
             self.verify = False
         else:
             self.verify = True
        
     
-    def getSessionStatus(self):
+    def getVerifiedStatus(self):
         return self.verify
         
 
