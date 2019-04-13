@@ -10,6 +10,7 @@
     --border: #F0F2F7;
     --inputbg: #F0F2F7;
     --inputborder: #E3E8F0;
+    --avatar: #EAEAEA;
     font-family: 'Montserrat';
 
 }
@@ -17,7 +18,7 @@
     margin-top: 5em;
 }
 
-.selecttime{
+.selecttime, .direction{
     position: relative;
     overflow: hidden;
     height: 100%;
@@ -283,6 +284,7 @@ select:focus{
     transform: translateY(50%);
     top: 50%;
     border: 0;
+    cursor: pointer;
 }
 .sml-container .centerbtn svg{
     font-size: 2.2em;
@@ -291,4 +293,97 @@ select:focus{
     /* /* top: 50%; */
     transform: translateX(10%); 
     position: relative;
+}
+
+.user{
+    background: var(--avatar);
+    border-radius: 100%;
+    width: 60px;
+    height: 60px;
+    display: inline-block;
+    position: relative;
+    margin: 0 auto;
+}
+
+.userList{
+    width: fit-content;
+
+    margin: 0 auto;
+    align-items: center;
+}
+
+button.centerbtn.success{
+    background: var(--mainGreen);
+}
+
+button.centerbtn.success svg{
+    transform: translateX(0%); 
+    font-size: 3em;
+}
+
+.sml-container-rnd {
+    position: absolute;
+    background: white;
+    border-radius: 99px;
+    padding: 1em;
+    z-index: 999;
+    height: fit-content;
+    text-align: center;
+    box-shadow: 0px 3px 40px rgba(0,0,0,.17);
+    bottom: 5em;
+    width: 300px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.sml-container-rnd h4{
+    width: 200px;
+    margin: 0 auto;
+}
+
+.sml-container-rnd img{
+    width: 100px;
+    height: 15px;
+    transform: scale(4);
+    margin-top: 5px;
+}
+
+.user .user-checkbox{
+    background: var(--mainBlue);
+    width: 15px;
+    height: 15px;
+    border-radius: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 90%;
+    position: absolute;
+    box-shadow: 0px 3px 6px rgba(0,0,0,.17);
+    border: 0;
+    padding: 0;
+}
+
+.user .user-checkbox svg{
+    color: white;
+    font-size: .9em;
+}
+
+.status-container{
+    display: inline-block;
+    text-align: center;
+    width: fit-content;
+    margin-right: 1em;
+}
+
+.status-container .status{
+    font-size: 12px;
+    margin-top: 1em;
+    font-weight: 600;
+}
+
+.arrived {
+    color: var(--mainGreen);
+}
+
+.otw{
+    color: var(--mainOrange);
 }
