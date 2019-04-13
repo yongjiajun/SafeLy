@@ -1,10 +1,31 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMapMarkerAlt, faPlay } from '@fortawesome/free-solid-svg-icons'
+import MapContainer from './Map';
+
 import '../assets/register.css'
 
 export default class SelectTime extends Component{
+    constructor(){
+        super();
+        this.state = {
+            time: new Date(),
+            timeInterval: null,
+            leavingTime: "",
+        }
+        this.clearTime = this.clearTime.bind(this);
+    }
 
+    componentDidMount() {
+        var self=this;
+        this.setState({timeInterval: setInterval(function(){
+            self.setState({time: new Date()});
+        },1000)});
+    }
+
+    clearTime() {
+        clearInterval(this.state.timeInterval);
+    }
     render(){
         return(
             <div className="selecttime">
@@ -20,11 +41,11 @@ export default class SelectTime extends Component{
 					<div className="sml-container">
 						<h3>Select your leaving time</h3>
                         <div className="hourSelection">
-                            <input type="number" min="0" max="23" placeholder="_ _"/>
-                            <div class="seperator">:</div>
-                            <input type="number" min="0" max="59" placeholder="_ _"/>
-                            <div class="seperator">:</div>
-                            <input type="number" min="0" max="59" placeholder="_ _"/>
+                            <input type="number" min="0" max="23" placeholder={this.state.time.getHours()} onClick = {this.clearTime}/>
+                            <div className="seperator">:</div>
+                            <input type="number" min="0" max="59" placeholder={this.state.time.getMinutes()} onClick = {this.clearTime}/>
+                            <div className="seperator">:</div>
+                            <input type="number" min="0" max="59" placeholder={this.state.time.getSeconds()} onClick = {this.clearTime}/>
                         </div>
 						<h3 className="blueTheme">Gender Preference</h3>
                         <div>
@@ -34,12 +55,14 @@ export default class SelectTime extends Component{
 
                             </select>
                         </div>
-                    <div className="centerbtn">
+                    <button className="centerbtn">
                         <FontAwesomeIcon icon={faPlay}/>
-                    </div>
+                    </button>
                     </div>
 				</div>
+                <MapContainer/>                 
             </div>
         )
     }
 }
+
