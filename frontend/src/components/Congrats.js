@@ -11,6 +11,7 @@ export default class Congrats extends Component{
         this.state = {
             toChild: true
         }
+        this.renderChild = this.renderChild.bind(this);
     }
 
     renderChild() {
@@ -36,14 +37,14 @@ export default class Congrats extends Component{
                         <div className="sml-container">
                             <h3>Congratulation!</h3>
                             <div className="userList">
-                                <div className="user"></div>
-                                <div className="user"></div>
-                                <div className="user"></div>
+                                <div className="user" style={{marginRight: "1em"}}></div>
+                                <div className="user" style={{marginRight: "1em"}}></div>
+                                <div className="user" style={{marginRight: "1em"}}></div>
                             </div>
 
                             <h3 className="blueTheme">These are your buddies :)</h3>
                             
-                        <button className="centerbtn success">
+                        <button className="centerbtn success" onClick={this.renderChild}>
                             <FontAwesomeIcon icon={faCheck}/>
                         </button>
                         </div>
