@@ -56,7 +56,7 @@ export class MapDirection extends Component {
     return (
       <Map
         google={this.props.google}
-        zoom={14}
+        zoom={16}
         initialCenter={this.state.currentLocation}
       > 
         <Marker position= {this.state.currentLocation}/>
