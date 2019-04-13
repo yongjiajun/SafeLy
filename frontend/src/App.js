@@ -6,6 +6,8 @@ import SelectTime from './components/SelectTime';
 import Congrats from './components/Congrats';
 import Qrcode from './components/Qrcode';
 import Directions from './components/Direction'
+import End from './components/End'
+
 class App extends Component {
 
   constructor() {
@@ -24,16 +26,18 @@ class App extends Component {
 
   render() {
     return (
-      <Login> 
-        <Register> 
-          <SelectTime> 
-            <Congrats> 
-              <Directions/>
-            </Congrats>
-          </SelectTime>
-        </Register>
-      </Login>
-    );
+      // <Login> 
+      //   <Register> 
+      //     <SelectTime> 
+      //       <Congrats> 
+      //         <Directions/>
+      //       </Congrats>
+      //     </SelectTime>
+      //   </Register>
+      // </Login>
+      //<Qrcode/>
+      <End/>
+      );
   }
 }
 

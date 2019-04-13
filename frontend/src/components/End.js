@@ -17,39 +17,48 @@ export default class End extends Component{
                             <FontAwesomeIcon icon={faMapMarkerAlt} />
                             SafeLy
                 </h1>
-                <h3>
-                    You have safely arrived!
-                </h3>
 				<div className="module">
 					<div className="instruction">
-						Select your desired time to leave.
-							We will find a buddy to leave with you
+						<h2>You have safely arrived!</h2>
 					</div>
-					<div className="sml-container">
-						<h3>Congratulation!</h3>
-                        <div className="user"></div>
-                        <div className="user"></div>
-                        <div className="user"></div>
+                    <div className="sml-container-sqr">
+                        <div className="qrContainer">
+                            <div className="status-container">
+                                <div className="user">
+                                    <button className="user-checkbox">
+                                    <FontAwesomeIcon icon={faCheck}/></button>
+                                </div>
+                                <div class="status arrived">Arrived</div>
+                            </div>
+                            <div className="status-container">
+                                <div className="user">
+                                    <button className="user-checkbox">
+                                    <FontAwesomeIcon icon={faCheck}/></button>
+                                </div>
+                                <div class="status arrived">Arrived</div>
+                            </div>
+                            <div className="status-container">
+                                <div className="user">
+                                    <button className="user-checkbox">
+                                    <FontAwesomeIcon icon={faCheck}/></button>
+                                </div>
+                                <div class="status otw">On the way</div>
+                            </div>
+                        </div>
+                    </div>
+                        <div className="endInfo">
+                            <div className="endMessage">You escort is done...</div>
+                            <div className="endMessage">For further assistance, we also provide
+                            the following service.</div>
+                        </div>
 
-						<h3 className="blueTheme">These are your buddies :)</h3>
-                        
-                    <button className="centerbtn">
-                        <FontAwesomeIcon icon={faCheck}/>
-                    </button>
-                    </div>
-                    <div>
-                        <h3>We're finding the nearest meet up place</h3>
-                    </div>
-				</div>
-                <div>
-                    <p> Your escort is done.... </p>
-                    <p> For furhter assistance, we also provide
-                        the following service.</p>
-                    <button>
-                        
-                    </button>
-                    <p> Emergency assistance <p>
-                </div>
-                <MapContainer/>                 
+                        <button className="emergencybtn">
+                            <FontAwesomeIcon icon={faCheck}/>
+                        </button>
+
+                        <div className="endMessage">Emergency Contact</div>
+				</div>                
             </div>
         )
+    }
+}

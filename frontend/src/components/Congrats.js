@@ -43,7 +43,7 @@ export default class Congrats extends Component{
 
                             <h3 className="blueTheme">These are your buddies :)</h3>
                             
-                        <button className="centerbtn success">
+                        <button className="emergencybtn">
                             <FontAwesomeIcon icon={faCheck}/>
                         </button>
                         </div>
