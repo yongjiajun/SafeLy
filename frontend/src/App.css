@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+.App {
+  text-align: center;
+}
+
+.homescreen-logo {
+  height: vmin;
+  pointer-events: none;
+  filter: invert(84%) sepia(98%) saturate(3079%) hue-rotate(181deg) brightness(114%) contrast(101%);
+}
+
+.App-header {
+  background-color: #3498DB;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.homescreen-title
+{
+  font-family: 'Montserrat';
+}
+
