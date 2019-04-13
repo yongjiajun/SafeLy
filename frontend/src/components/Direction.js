@@ -24,14 +24,14 @@ export default class Direction extends Component{
                                 <button className="user-checkbox">
                                 <FontAwesomeIcon icon={faCheck}/></button>
                             </div>
-                            <div class="status arrived">Arrived</div>
+                            <div className="status arrived">Arrived</div>
                         </div>
                         <div className="status-container">
                              <div className="user">
                                 <button className="user-checkbox">
                                 <FontAwesomeIcon icon={faCheck}/></button>
                             </div>
-                            <div class="status arrived">Arrived</div>
+                            <div className="status arrived">Arrived</div>
 
                         </div>
                         <div className="status-container">
@@ -39,13 +39,20 @@ export default class Direction extends Component{
                                 <button className="user-checkbox">
                                 <FontAwesomeIcon icon={faCheck}/></button>
                             </div>
-                            <div class="status otw">On the way</div>
+                            <div className="status otw">On the way</div>
                         </div>
                     </div>
                     
 
                 </div>
-                <MapDirection/>
+                <MapDirection
+                    googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpjsS_Dw5a70HuU5LXjVuQHjPmc7jxc4E"
+                    loadingElement={<div style={{ height: `100%` }} />}
+                    containerElement={<div style={{ height: `400px` }} />}
+                    mapElement={<div style={{ height: `100%` }} />}
+                    center={{ lat: -24.9923319, lng: 135.2252427 }}
+                    zoom={9}
+                />
             </div>
         )
     }
