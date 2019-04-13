@@ -258,6 +258,10 @@ select.genderpref{
     margin: 0 auto;
 }
 
+select:focus{
+    outline: none;
+}
+
 .sml-container .centerbtn {
     background: var(--mainBlue);
     border-radius: 100%;
