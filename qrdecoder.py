@@ -4,6 +4,7 @@ import pyzbar.pyzbar as pyzbar
 import numpy as np
 import cv2
 import time
+import json
 
 # get the webcam:  
 cap = cv2.VideoCapture(0)
@@ -63,8 +64,20 @@ while(cap.isOpened()):
         print('Type : ', decodedObject.type)
         print('Data : ', decodedObject.data,'\n')
 
-        barCode = str(decodedObject.data)
-        cv2.putText(frame, barCode, (x, y), font, 1, (0,255,255), 2, cv2.LINE_AA)
+        dataType = decodedObject.type
+        data = decodedObject.data
+
+        QRcode = {
+          'Data Type:': decodedObject.type,
+          'Data' : decodedObject.data
+        }
+        
+        with open('QRcode.json', 'w') as f:
+            json.dump(str(QRcode), f)
+
+        QRcode = str(decodedObject.data)
+
+        cv2.putText(frame, QRcode, (x, y), font, 1, (0,255,255), 2, cv2.LINE_AA)
                
     # Display the resulting frame
     cv2.imshow('frame',frame)
@@ -77,3 +90,4 @@ while(cap.isOpened()):
 # When everything done, release the capture
 cap.release()
 cv2.destroyAllWindows()
+
