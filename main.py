@@ -33,7 +33,7 @@ def removeStudent(ID1, ID2):
     studentDict.pop(ID2)
     return
 
-def createSession(receiver, sender, sessionID, date, guardRequested):
+def createSession(sessionID, date, guardRequested):
     request = Session(receiver, sender, sessionID, date, guardRequested)
     sessionDict[sessionID] = request
     return
