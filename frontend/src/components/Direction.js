@@ -24,14 +24,14 @@ export default class Direction extends Component{
                                 <button className="user-checkbox">
                                 <FontAwesomeIcon icon={faCheck}/></button>
                             </div>
-                            <div class="status arrived">Arrived</div>
+                            <div className="status arrived">Arrived</div>
                         </div>
                         <div className="status-container">
                              <div className="user">
                                 <button className="user-checkbox">
                                 <FontAwesomeIcon icon={faCheck}/></button>
                             </div>
-                            <div class="status arrived">Arrived</div>
+                            <div className="status arrived">Arrived</div>
 
                         </div>
                         <div className="status-container">
@@ -39,7 +39,7 @@ export default class Direction extends Component{
                                 <button className="user-checkbox">
                                 <FontAwesomeIcon icon={faCheck}/></button>
                             </div>
-                            <div class="status otw">On the way</div>
+                            <div className="status otw">On the way</div>
                         </div>
                     </div>
                     
