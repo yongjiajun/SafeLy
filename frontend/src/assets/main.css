@@ -1,4 +1,5 @@
 /* Main stores all the color and general theme */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,600,700,800');
 * {
     --mainBlue: #3B55E6;
     --subBlue: #7E85AA;
@@ -6,7 +7,14 @@
     --mainGreen: #27AE60;
     --background: #3498DB;
     --container: #fff;
+    --border: #F0F2F7;
+    --inputbg: #F0F2F7;
+    --inputborder: #E3E8F0;
     font-family: 'Montserrat';
+
+}
+.register, .selecttime {
+    margin-top: 3em;
 }
 
 body {
@@ -17,8 +25,9 @@ body {
 h1.logo-title{
     font-weight: 700;
     color: white;
-    
-  }
+    display: block;
+    text-align: center;
+}
   
 .logo-title svg {
 margin-right: .2em;
@@ -46,16 +55,227 @@ button.bigBtn {
     border-radius: 99px;
     color: black;
     border: 0;
-    box-shadow: 0px 3px 6px rbga(0,0,0,17);
+    box-shadow: 0px 3px 6px rgba(0,0,0,.17);
     font-weight: 700;
     letter-spacing: .2em;
 }
 
+
+
 .bigBtn:hover{
     cursor: pointer;
-
 }
+
 
 button:focus {
     outline: 0;
+}
+
+.container{
+    padding: 1em 1em;
+    background: var(--container);
+    width: fit-content;
+    min-height: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+    border-radius: 5px;
+    box-shadow: 0px 3px 40px rgba(0,0,0,.17);
+}
+
+.container label{ 
+    color:var(--mainBlue);
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: .8em;
+    display: block;
+    margin-bottom: 1em;
+}
+.container .form .element-inline {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2em;
+    margin-bottom: 1em;
+}
+.container .form .element{
+    margin-bottom: 1em;
+}
+.container .header{
+    border-bottom: 1px solid var(--border);
+}
+
+.container .form {
+    padding: 1em 2em;
+}
+
+.container .form input{
+    background: var(--inputbg);
+    border: 1px solid var(--inputborder);
+    border-radius: 99px;
+    line-height: 3em;
+    box-shadow: inset 0;
+    margin-left: -15px;
+    padding-left: 1em;
+    display: block;
+    width: calc(100%);
+    color: var(--mainBlue);
+
+}
+
+.container .form select{
+    background: var(--inputbg);
+    border: 1px solid var(--inputborder);
+    border-radius: 99px;
+    line-height: 3em;
+    height: 3em;
+    box-shadow: inset 0;
+    margin-left: -15px;
+    padding-left: 1em;
+    display: block;
+    width: calc(106%);
+}
+.container .form select:focus{
+    outline: 0;
+}
+
+
+.container .form input:focus{
+    outline: 0;
+}
+.container .form .element.divider{ 
+    border: 2px solid var(--border);
+    border-left:0;
+    border-right:0;
+    border-bottom: 0;
+    padding-top: 1em;
+    width: 100%;
+}
+#round {
+    border-radius: 25px;
+    background:#3B55E6;
+     
+}
+hr {
+    border-color: var(--border)
+}
+button.bigBtn.blueTheme{
+    background: var(--mainBlue);
+    letter-spacing: inherit;
+    color: white;
+    text-transform: uppercase;
+}
+button.bigBtn.blueTheme:hover{
+    background: var(--mainBlue) radial-gradient(circle, transparent 1%, var(--mainBlue) 1%) center/15000%;
+}
+button.bigBtn.blueTheme:active{
+    background-color: #E3E8F0;
+    background-size: 100%;
+    transition: background 0s;
+}
+
+[type="checkbox"]
+{
+    vertical-align:middle;
+}
+
+.module{
+    padding: 0 3em;
+}
+.instruction {
+    color: white;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom:2em;
+}
+
+.sml-container{
+    background: white;
+    border-radius: 32px;
+    padding: 1em;
+}
+
+.sml-container h3{
+    color: black;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    font-size: .8em;
+    text-align: center;
+    margin: 3em auto 2em;
+}
+
+.sml-container h3.blueTheme{
+    color: var(--mainBlue);
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    font-size: .8em;
+    text-align: center;
+}
+.hourSelection{
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+    width: fit-content;
+    position: relative;
+    margin: 2em auto 2em;
+}
+input[type="number"]{
+    border: 0;
+    color: #000;
+    font-size: 2em;
+    font-weight: 600;
+    text-align: center;
+    width: fit-content;
+    max-width: 50px;
+}
+
+input[type="number"]:focus{
+    outline: 0;
+}
+
+input[type="number"]::-webkit-input-placeholder {
+    color: black;
+}
+
+.hourSelection .seperator{
+    display: inline-block;
+    line-height: 13px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+select.genderpref{
+    background: var(--inputbg);
+    border: 1px solid var(--inputborder);
+    border-radius: 99px;
+    line-height: 4em;
+    height: 4em;
+    box-shadow: inset 0;
+    margin-left: -15px;
+    padding-left: 1em;
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.sml-container .centerbtn {
+    background: var(--mainBlue);
+    border-radius: 100%;
+    width:94px;
+    height: 94px;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    box-shadow: 0px 3px 40px rgba(0,0,0,.17);
+    transform: translateY(50%);
+    top: 50%;
+}
+.sml-container .centerbtn svg{
+    font-size: 2.2em;
+    color: white;
+    margin: 0 auto;
+    top: 50%;
+    transform: translateY(-50%) translateX(10%);
+    position: relative;
 }
