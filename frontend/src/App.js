@@ -30,20 +30,21 @@ class App extends Component {
 
   render() {
     return (
-      // <Login> 
-        <Register> 
-          <SelectTime> 
-            <Congrats> 
-              <Directions> 
-                <Qrcode>
-                  <End />
-                </Qrcode>
-              </Directions>
-            </Congrats>
-          </SelectTime>
-        </Register>
-      // </Login>
-      // <Scanner/>
+      <Login> 
+        <Scanner>
+          <Register> 
+            <SelectTime> 
+              <Congrats> 
+                <Directions> 
+                  <Qrcode>
+                    <End />
+                  </Qrcode>
+                </Directions>
+              </Congrats>
+            </SelectTime>
+          </Register>
+        </Scanner>
+      </Login>
     );
   }
 }
