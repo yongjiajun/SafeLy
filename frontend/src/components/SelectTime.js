@@ -12,7 +12,7 @@ export default class SelectTime extends Component{
             toChild: false,
             time: new Date(),
             timeInterval: null,
-            leavingTime: "",
+            stop: false
         }
         this.clearTime = this.clearTime.bind(this);
         this.renderChild = this.renderChild.bind(this);
@@ -20,21 +20,31 @@ export default class SelectTime extends Component{
 
     componentDidMount() {
         var self=this;
-        this.setState({timeInterval: setInterval(function(){
-            self.setState({time: new Date()});
-        },1000)});
+        this.setState({
+            stop: true,
+            timeInterval: setInterval(function(){
+                self.setState({time: new Date()});
+            },1000),
+            usr: this.props.usr
+    });
     }
 
     renderChild() {
-        this.setState({
+
+        this.setState(prevState=>({
             toChild: true,
-        });
+            usr: {
+                ...prevState.usr,
+                datetime: this.state.time}
+        }));
+        
 
     }
 
     clearTime() {
         clearInterval(this.state.timeInterval);
     }
+
     render(){
         if(this.state.toChild == false) {
             return(
@@ -51,11 +61,11 @@ export default class SelectTime extends Component{
                         <div className="sml-container">
                             <h3>Select your leaving time</h3>
                             <div className="hourSelection">
-                                <input type="number" min="0" max="23" placeholder={this.state.time.getHours()} onClick = {this.clearTime}/>
+                                <input type="number" min="0" max="23" className="num1" placeholder={this.state.time.getHours()} onClick = {this.clearTime}/>
                                 <div className="seperator">:</div>
-                                <input type="number" min="0" max="59" placeholder={this.state.time.getMinutes()} onClick = {this.clearTime}/>
+                                <input type="number" min="0" max="59" className="num2" placeholder={this.state.time.getMinutes()} onClick = {this.clearTime}/>
                                 <div className="seperator">:</div>
-                                <input type="number" min="0" max="59" placeholder={this.state.time.getSeconds()} onClick = {this.clearTime}/>
+                                <input type="number" min="0" max="59" className="num3" placeholder={this.state.time.getSeconds()} onClick = {this.clearTime}/>
                             </div>
                             <h3 className="blueTheme">Gender Preference</h3>
                             <div>
@@ -74,7 +84,7 @@ export default class SelectTime extends Component{
                 </div>
             )
         } else {
-            return React.cloneElement(React.Children.only(this.props.children), {});
+            return React.cloneElement(React.Children.only(this.props.children), {usr: this.state.usr});
         }
     }
 }

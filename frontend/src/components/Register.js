@@ -7,11 +7,30 @@ export default class Register extends Component{
         super();
         this.state = {
             toChild: false,
+            usr: {
+                sessionId: '1',
+                studentName: null,
+                studentId: null,
+                requester: true,
+                checkedIn: false,
+                verify: true,
+                datetime: null,
+            }
         }
         this.renderChild = this.renderChild.bind(this);
+        this.onInputChange = this.onInputChange.bind(this);
     }
     renderChild() {
         this.setState({toChild: true});
+    }
+    onInputChange(event) {
+        this.setState(prevState => ({
+                usr: {
+                    ...prevState.usr,
+                    [event.target.name]: event.target.value
+                }
+            })
+        );
     }
     render() {
         if(this.state.toChild == false) {
@@ -30,7 +49,7 @@ export default class Register extends Component{
                                 <div className = "element-inline">
                                     <div>
                                         <label>First name</label>
-                                        <input type="text"></input>
+                                        <input type="text" name="studentName" onChange={this.onInputChange}></input>
                                     </div>
                                     <div>
                                         <label>Last name</label>
@@ -38,7 +57,7 @@ export default class Register extends Component{
                                     </div>
                                 </div>
                                 <div className = "element">
-                                    <label>E-mail</label>
+                                    <label>Student E-mail</label>
                                     <input type="email"></input>
                                 </div>
                                 <div className="element">
@@ -46,8 +65,8 @@ export default class Register extends Component{
                                     <input type ="password"></input>
                                 </div>
                                 <div className="element">
-                                    <label>Confirm Password</label>
-                                    <input type="password"></input>
+                                    <label>Student Id</label>
+                                    <input type="text" name= "studentId" onChange={this.onInputChange}></input>
                                 </div>
                                 <div className="element divider">
                                     <label>University</label>
@@ -59,7 +78,7 @@ export default class Register extends Component{
                                 </div>
 
                                 <div className="element">
-                                    <button type="button" class="bigBtn blueTheme" onClick={this.renderChild}>Sign up</button>
+                                    <button type="button" className="bigBtn blueTheme" onClick={this.renderChild}>Sign up</button>
                                 </div>
 
                             </div>
@@ -68,7 +87,7 @@ export default class Register extends Component{
                     </div>
             );
         } else {
-            return React.cloneElement(React.Children.only(this.props.children), {});
+            return React.cloneElement(React.Children.only(this.props.children), {usr: this.state.usr});
         }
     }
 }

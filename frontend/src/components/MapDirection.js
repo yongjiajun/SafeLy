@@ -9,7 +9,7 @@ export class MapDirection extends Component {
     super();
     this.state = {
       currentLocation: {
-         lat: -37.803835,
+         lat: -37.796368,
          lng: 144.960655
       },
       finalPosition: {
@@ -17,7 +17,7 @@ export class MapDirection extends Component {
         lng: 144.9612
       },
       lineCoordinates: [{
-        lat: -37.803835,
+        lat: -37.796368,
        lng: 144.960655
     }, {
       lat: -37.7964,
@@ -61,7 +61,7 @@ export class MapDirection extends Component {
       return (
         <Map
           google={this.props.google}
-          zoom={16}
+          zoom={18}
           initialCenter={this.state.currentLocation}
         > 
           <Marker position= {this.state.currentLocation}/>

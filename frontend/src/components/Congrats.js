@@ -3,8 +3,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMapMarkerAlt, faCheck } from '@fortawesome/free-solid-svg-icons'
 import MapContainer from './Map';
 import Loading from '../assets/img/loading.svg'
-import '../assets/register.css'
+import '../assets/register.css';
+import openSocket from 'socket.io-client';
 
+const API = "http://10.25.130.83:5000";
+const socket = openSocket(API);
 export default class Congrats extends Component{
     constructor(){
         super();
@@ -19,6 +22,11 @@ export default class Congrats extends Component{
             toChild: true,
         });
     }
+
+    componentDidMount() {
+        socket.emit("my event", this.props.usr);
+    }
+
 
     render(){
         if(this.state.toChild == false) {
