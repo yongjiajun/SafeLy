@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,600,700');
+
+.login {
+  text-align: center;
+  width: fit-content;
+  min-height: 300px;
+  height: fit-content;
+  margin: auto;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}

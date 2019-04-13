@@ -1,0 +1,61 @@
+/* Main stores all the color and general theme */
+* {
+    --mainBlue: #3B55E6;
+    --subBlue: #7E85AA;
+    --mainOrange: #E67E22;
+    --mainGreen: #27AE60;
+    --background: #3498DB;
+    --container: #fff;
+    font-family: 'Montserrat';
+}
+
+body {
+    background: var(--background);
+    height: 100vh;
+    overflow: hidden;
+}
+h1.logo-title{
+    font-weight: 700;
+    color: white;
+    
+  }
+  
+.logo-title svg {
+margin-right: .2em;
+}
+
+#root{
+    height: 100%;
+}
+button:hover{
+    background: #fff radial-gradient(circle, transparent 1%, #fff 1%) center/15000%;
+}
+button:active{
+    background-color: #E3E8F0;
+    background-size: 100%;
+    transition: background 0s;
+}
+button {
+    background: white;
+    background-position: center;
+    transition: background 0.8s;
+}
+button.bigBtn {
+    width: 300px;
+    height: 45px;
+    border-radius: 99px;
+    color: black;
+    border: 0;
+    box-shadow: 0px 3px 6px rbga(0,0,0,17);
+    font-weight: 700;
+    letter-spacing: .2em;
+}
+
+.bigBtn:hover{
+    cursor: pointer;
+
+}
+
+button:focus {
+    outline: 0;
+}

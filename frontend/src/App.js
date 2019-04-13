@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import './assets/main.css';
+import Login from './components/Login';
+import Register from './components/Register';
 class App extends Component {
+
+  constructor() {
+    super();
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="homescreen-logo" alt="logo" />
-          <p className="homescreen-title">
-            SafeBuddy
-          </p>
-        </header>
-      </div>
+      <Login> 
+        <Register/>
+      </Login>
     );
   }
 }
