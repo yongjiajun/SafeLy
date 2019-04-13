@@ -25,20 +25,7 @@ class App extends Component {
     //   ;
     //   rfs.call(el);
     // });
-    socket.emit('my response', {
-      user_name: "oooo",
-      message: "asdasdas"
-    });
-    fetch(API, {
-      method: 'post',
-      headers: {
-        'Accept': 'application/json, text/plain, */*',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({a: 7, str: 'Some string: &=&'}),
-      mode: 'cors'
-      }).then(res=>res.json())
-    .then(res => console.log(res));
+
   }
 
   render() {

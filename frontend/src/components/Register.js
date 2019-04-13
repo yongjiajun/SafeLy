@@ -15,11 +15,12 @@ export default class Register extends Component{
                 checkedIn: false,
                 verify: true,
                 datetime: null,
-            }
+            },
         }
         this.renderChild = this.renderChild.bind(this);
         this.onInputChange = this.onInputChange.bind(this);
     }
+
     renderChild() {
         this.setState({toChild: true});
     }
@@ -81,7 +82,7 @@ export default class Register extends Component{
                     </div>
             );
         } else {
-            return React.cloneElement(React.Children.only(this.props.children), {usr: this.state.usr});
+            return React.cloneElement(React.Children.only(this.props.children), {usr: this.state.usr, studentId: this.state.studentId, studentName: this.state.studentName});
         }
     }
 }

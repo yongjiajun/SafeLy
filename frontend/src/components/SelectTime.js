@@ -35,7 +35,10 @@ export default class SelectTime extends Component{
             toChild: true,
             usr: {
                 ...prevState.usr,
-                datetime: this.state.time}
+                datetime: this.state.time,
+                studentId: this.props.studentId,
+                studentName: this.props.studentName
+            }
         }));
         
 

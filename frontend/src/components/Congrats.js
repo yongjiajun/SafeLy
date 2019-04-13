@@ -12,9 +12,11 @@ export default class Congrats extends Component{
     constructor(){
         super();
         this.state = {
-            toChild: false
+            toChild: false,
+            userList: []
         }
         this.renderChild = this.renderChild.bind(this);
+
     }
 
     renderChild() {
@@ -24,9 +26,21 @@ export default class Congrats extends Component{
     }
 
     componentDidMount() {
+        fetch(API, {
+            method: 'post',
+            headers: {
+              'Accept': 'application/json, text/plain, */*',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({a: 7, str: 'Some string: &=&'}),
+            mode: 'cors'
+            }).then(res=>res.json())
+        .then(res => console.log(res));
         socket.emit("my event", this.props.usr);
     }
 
+
+    
 
     render(){
         if(this.state.toChild == false) {
