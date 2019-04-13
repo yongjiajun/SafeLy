@@ -18,7 +18,7 @@ export default class Login extends Component{
             return(
                 <div className="login">
                     <h1 className="logo-title">
-                        <FontAwesomeIcon icon={faMapMarkerAlt} />
+                        <FontAwesomeIcon icon={faMapMarkerAlt}/>
                         SafeLy
                     </h1>
                     <button className="login-button bigBtn" onClick={this.renderChild}>LOG IN</button>

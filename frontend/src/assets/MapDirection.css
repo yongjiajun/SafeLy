@@ -1,0 +1,76 @@
+.sml-container-rnd.top {
+    top: 5em;
+    position: absolute;
+}
+
+.round-btn {
+    border-radius: 99px;
+    background: white;
+    color: inherit;
+    padding: .2em 1em;
+    text-align: center;
+    width: fit-content;
+    border: 0;
+    height: 39px;
+    font-weight: 700;
+    font-size: 1em;
+    display: block;
+    text-transform: uppercase;
+    box-shadow: 0px 3px 6px rgba(0,0,0,.17);
+    margin-bottom: 1em;
+}
+.bottom-container{
+    display: block;
+    margin: 2em auto;
+    text-align: center;
+    height: 100%;
+}
+
+.round-btn.medium {
+    height: 50px;
+    padding:.2em 2em;
+    position: absolute;
+    top: -1.5em;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--subBlue);
+    color: white;
+}
+
+.round-btn.medium:hover{
+    background: var(--mainBlue);
+
+}
+
+button.round-btn:first-child svg{
+    color: #E74C3C;
+}
+
+button.round-btn:hover{
+    cursor: pointer;
+}
+
+button.round-btn:nth-child(2) {
+    background: #E74C3C;
+    color: #fff;
+}
+
+.btn-controller {
+    position: absolute;
+    z-index: 2;
+    top: 180px;
+    margin-left: 20px;
+}
+
+.bottomUI {
+    width: 100%;
+    border-radius: 30px 30px 0 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 150px;
+    background: white;
+    position: absolute;
+    bottom:0px;
+    z-index: 2;
+    box-shadow: 0px -3px 46px rgba(0,0,0,.17);
+}

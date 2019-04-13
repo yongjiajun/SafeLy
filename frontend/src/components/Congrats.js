@@ -9,7 +9,7 @@ export default class Congrats extends Component{
     constructor(){
         super();
         this.state = {
-            toChild: false
+            toChild: true
         }
     }
 
