@@ -10,6 +10,7 @@
     --border: #F0F2F7;
     --inputbg: #F0F2F7;
     --inputborder: #E3E8F0;
+    --avatar: #EAEAEA;
     font-family: 'Montserrat';
 
 }
@@ -291,4 +292,46 @@ select:focus{
     /* /* top: 50%; */
     transform: translateX(10%); 
     position: relative;
+}
+
+.user{
+    background: var(--avatar);
+    border-radius: 100%;
+    width: 60px;
+    height: 60px;
+    display: inline-block;
+    margin-right: 1em;
+}
+
+.userList{
+    width: fit-content;
+
+    margin: 0 auto;
+    align-items: center;
+}
+
+button.centerbtn.success{
+    background: var(--mainGreen);
+}
+
+button.centerbtn.success svg{
+    transform: translateX(0%); 
+    font-size: 3em;
+}
+
+.sml-container-rnd {
+    position: relative;
+    background: white;
+    border-radius: 99px;
+    padding: 2em;
+    z-index: 999;
+    height: fit-content;
+    text-align: center;
+    box-shadow: 0px 3px 40px rgba(0,0,0,.17);
+    position: relative;
+}
+
+.sml-container-rnd h4{
+    width: 200px;
+    margin: 0 auto;
 }
