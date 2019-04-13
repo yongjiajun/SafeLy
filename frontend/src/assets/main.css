@@ -14,13 +14,19 @@
 
 }
 .register, .selecttime {
-    margin-top: 3em;
+    margin-top: 5em;
+}
+
+.selecttime{
+    position: relative;
+    overflow: hidden;
+    height: 100%;
 }
 
 body {
     background: var(--background);
     height: 100vh;
-    overflow: hidden;
+    position: relative;
 }
 h1.logo-title{
     font-weight: 700;
@@ -191,6 +197,8 @@ button.bigBtn.blueTheme:active{
     background: white;
     border-radius: 32px;
     padding: 1em;
+    z-index: 999;
+    position: relative;
 }
 
 .sml-container h3{
@@ -274,12 +282,13 @@ select:focus{
     box-shadow: 0px 3px 40px rgba(0,0,0,.17);
     transform: translateY(50%);
     top: 50%;
+    border: 0;
 }
 .sml-container .centerbtn svg{
     font-size: 2.2em;
     color: white;
     margin: 0 auto;
-    top: 50%;
-    transform: translateY(-50%) translateX(10%);
+    /* /* top: 50%; */
+    transform: translateX(10%); 
     position: relative;
 }
