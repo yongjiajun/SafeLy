@@ -26,8 +26,12 @@ export class MapDirection extends Component {
     }
   }
 
+  renderChild() {
+    this.setState({toChild: true});
+  }
 
   componentDidMount() {
+
     // Once the Google Maps API has finished loading, initialize the map
     var directionsService = new window.google.maps.DirectionsService;
     var directionsDisplay = new window.google.maps.DirectionsRenderer;
@@ -52,25 +56,26 @@ export class MapDirection extends Component {
     });
   }
 
+
   render() {
-    return (
-      <Map
-        google={this.props.google}
-        zoom={16}
-        initialCenter={this.state.currentLocation}
-      > 
-        <Marker position= {this.state.currentLocation}/>
-        <Polyline
-        path={this.state.lineCoordinates}
-        geodesic={false}
-        options={{
-            strokeColor: '#38B44F',
-            strokeOpacity: 1,
-            strokeWeight: 7,
-        }}
-      />
-      </Map>
-    );
+      return (
+        <Map
+          google={this.props.google}
+          zoom={16}
+          initialCenter={this.state.currentLocation}
+        > 
+          <Marker position= {this.state.currentLocation}/>
+          <Polyline
+          path={this.state.lineCoordinates}
+          geodesic={false}
+          options={{
+              strokeColor: '#38B44F',
+              strokeOpacity: 1,
+              strokeWeight: 7,
+          }}
+        />
+        </Map>
+      ); 
   }
 }
 export default GoogleApiWrapper({

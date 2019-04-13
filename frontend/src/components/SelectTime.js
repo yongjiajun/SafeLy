@@ -9,7 +9,7 @@ export default class SelectTime extends Component{
     constructor(){
         super();
         this.state = {
-            toChild: true,
+            toChild: false,
             time: new Date(),
             timeInterval: null,
             leavingTime: "",

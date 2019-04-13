@@ -15,7 +15,7 @@
 
 }
 .register, .selecttime {
-    margin-top: 5em;
+    margin-top: 4em;
 }
 
 .selecttime, .direction{
@@ -386,4 +386,106 @@ button.centerbtn.success svg{
 
 .otw{
     color: var(--mainOrange);
+}
+
+
+
+
+
+
+
+
+
+.qr-container{
+    margin-bottom: 2em;
+    text-align: center;
+    
+}
+
+
+
+.sml-container-sqr{
+    background: white;
+    border-radius: 11px;
+    padding: 1em;
+    position: relative; 
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+    margin-bottom: 2em;
+    font-weight: 600;
+    width: 273px;
+    margin: 0 auto;
+}
+
+.qr-container img{
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    display: block;
+    background:white;
+    border-radius: 20px;
+    box-shadow: 0 3px 6px rgba(0, 3, 50,.16);
+}
+
+.status-container.qr-arrive{
+    margin-right: 0;
+    text-align: center;
+    width: 80px;
+}
+.sml-container-sqr{
+    text-align: center;
+    margin-bottom: 20px;
+}
+.outter{
+    width: fit-content;
+    margin: 0 auto;
+    text-align: center;
+    font-size: .9em;
+    font-weight: 600;
+}
+
+.outter .securetext{
+    margin-bottom: 1em;
+}
+
+.circleBg{
+    position: absolute;
+    width: 150vw;
+    height: 150vw;
+    border-radius: 100%;
+    background: #fff;
+    bottom: -10%;
+    z-index: -1;
+    margin: 0 auto;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.instruction h3{
+    width: 200px;
+    margin: 0 auto;
+}
+
+.centerSOS{
+    background: white;
+    border-radius: 100%;
+    width:94px;
+    height: 94px;
+    display: block;
+    margin: 0 auto;
+    box-shadow: 0px 3px 40px rgba(0,0,0,.17);
+    border: 0;
+    cursor: pointer;
+    font-size: 3em;
+    color: #E74C3C;
+}
+
+.bottomWrapper{
+    height: 300px;
+}
+
+.bottomWrapper h4{
+    text-align: center;
+    margin-top: 1em;
+    text-transform: uppercase;
+    color: white;
 }

@@ -5,7 +5,8 @@ import Register from './components/Register';
 import SelectTime from './components/SelectTime';
 import Congrats from './components/Congrats';
 import Qrcode from './components/Qrcode';
-import Directions from './components/Direction'
+import Directions from './components/Direction';
+import End from './components/End';
 class App extends Component {
 
   constructor() {
@@ -28,7 +29,11 @@ class App extends Component {
         <Register> 
           <SelectTime> 
             <Congrats> 
-              <Directions/>
+              <Directions> 
+                <Qrcode>
+                  <End />
+                </Qrcode>
+              </Directions>
             </Congrats>
           </SelectTime>
         </Register>

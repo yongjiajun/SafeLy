@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMapMarkerAlt, faCheck } from '@fortawesome/free-solid-svg-icons'
+import { faMapMarkerAlt, faLifeRing, faCheck } from '@fortawesome/free-solid-svg-icons'
 import MapContainer from './Map';
 
 import '../assets/register.css'
@@ -17,39 +17,48 @@ export default class End extends Component{
                             <FontAwesomeIcon icon={faMapMarkerAlt} />
                             SafeLy
                 </h1>
-                <h3>
-                    You have safely arrived!
-                </h3>
 				<div className="module">
 					<div className="instruction">
-						Select your desired time to leave.
-							We will find a buddy to leave with you
+						<h3>YOU HAVE SAFELY ARRIVED!</h3>
 					</div>
-					<div className="sml-container">
-						<h3>Congratulation!</h3>
-                        <div className="user"></div>
-                        <div className="user"></div>
-                        <div className="user"></div>
-
-						<h3 className="blueTheme">These are your buddies :)</h3>
-                        
-                    <button className="centerbtn">
-                        <FontAwesomeIcon icon={faCheck}/>
-                    </button>
+                    <div className="sml-container-sqr">
+                        <div className="userWrapper">
+                            <div className="status-container qr-arrive">
+                                <div className="user">
+                                    <button className="user-checkbox">
+                                    <FontAwesomeIcon icon={faCheck}/></button>
+                                </div>
+                                <div class="status arrived">Arrived</div>
+                            </div>
+                            <div className="status-container qr-arrive">
+                                <div className="user">
+                                    <button className="user-checkbox">
+                                    <FontAwesomeIcon icon={faCheck}/></button>
+                                </div>
+                                <div class="status arrived">Arrived</div>
+                            </div>
+                            <div className="status-container qr-arrive">
+                                <div className="user">
+                                    <button className="user-checkbox">
+                                    <FontAwesomeIcon icon={faCheck}/></button>
+                                </div>
+                                <div class="status arrived">Arrived</div>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <h3>We're finding the nearest meet up place</h3>
+                    <div className="instruction">
+                        <h4>Your escort is done...</h4>
+                        <h4>For further assistance, we also provide the following service.</h4>
                     </div>
-				</div>
-                <div>
-                    <p> Your escort is done.... </p>
-                    <p> For furhter assistance, we also provide
-                        the following service.</p>
-                    <button>
-                        
-                    </button>
-                    <p> Emergency assistance <p>
+                    <div className="bottomWrapper">
+                        <button className="centerSOS">
+                            <FontAwesomeIcon icon={faLifeRing}/>
+                        </button>
+                        <h4>Emergency assistance</h4>
+                    </div>
                 </div>
-                <MapContainer/>                 
             </div>
         )
+    }
+}
+

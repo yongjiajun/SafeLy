@@ -6,7 +6,7 @@ export default class Login extends Component{
     constructor() {
         super();
         this.state = {
-            toRegister: true,
+            toRegister: false,
         }
         this.renderChild = this.renderChild.bind(this);
     }

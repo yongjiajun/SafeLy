@@ -6,7 +6,7 @@ export default class Register extends Component{
     constructor() {
         super();
         this.state = {
-            toChild: true,
+            toChild: false,
         }
         this.renderChild = this.renderChild.bind(this);
     }
