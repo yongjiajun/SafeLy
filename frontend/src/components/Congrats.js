@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMapMarkerAlt, faCheck } from '@fortawesome/free-solid-svg-icons'
 import MapContainer from './Map';
-
+import Loading from '../assets/img/loading.svg'
 import '../assets/register.css'
 
 export default class Congrats extends Component{
@@ -47,11 +47,13 @@ export default class Congrats extends Component{
                             <FontAwesomeIcon icon={faCheck}/>
                         </button>
                         </div>
-                        <div className="sml-container-rnd">
-                            <h4>We're finding the nearest meet up place</h4>
-                        </div>
+                        
                     </div>
                     <MapContainer/>
+                    <div className="sml-container-rnd">
+                            <h4>We're finding the nearest meet up place</h4>
+                            <img src={Loading}/>
+                    </div>
                 </div>
             )
         }

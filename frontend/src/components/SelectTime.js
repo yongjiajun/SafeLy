@@ -65,7 +65,7 @@ export default class SelectTime extends Component{
 
                                 </select>
                             </div>
-                        <button className="centerbtn" onclick = {this.renderChild}>
+                        <button className="centerbtn" onClick={this.renderChild}>
                             <FontAwesomeIcon icon={faPlay}/>
                         </button>
                         </div>
