@@ -1,0 +1,18 @@
+
+.Loading img{
+    width: 100px;
+    height: 100px;
+    position: relative;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+}
+
+.Loading {
+    position: absolute;
+    z-index: 999;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 100%;
+}
