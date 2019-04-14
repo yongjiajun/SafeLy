@@ -20,6 +20,8 @@ export default class SelectTime extends Component{
     }
 
     componentDidMount() {
+        console.log("SelectTime");
+        console.log(this.props.usr);
         var self=this;
         this.setState({
             stop: true,
@@ -86,7 +88,7 @@ export default class SelectTime extends Component{
                 </div>
             )
         } else {
-            return React.cloneElement(React.Children.only(this.props.children), {usr: this.state.usr});
+            return React.cloneElement(React.Children.only(this.props.children), {usr: this.state.usr, studentId: this.props.studentId});
         }
     }
 }

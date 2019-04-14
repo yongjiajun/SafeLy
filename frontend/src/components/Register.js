@@ -10,7 +10,7 @@ export default class Register extends Component{
             usr: {
                 sessionId: '1',
                 studentName: null,
-                studentId: this.props.data.studentID,
+                studentId: this.props.data['studentID'],
                 requester: true,
                 checkedIn: false,
                 verify: true,
@@ -25,10 +25,23 @@ export default class Register extends Component{
     renderChild() {
         this.setState({toChild: true});
     }
+    componentDidMount() {
+        var self=this;
+        this.setState(prevState => ({
+            usr: {
+                ...prevState.usr,
+                studentId: this.props.data['studentID']
+            }
+        }))
+       
+    };
+    
     onInputChange(event) {
         this.setState({[event.target.name]: event.target.value});
     }
     render() {
+        console.log(this.props.data['studentID']);
+        console.log(this.state.usr);
         if(this.state.toChild == false) {
                 return (
                     <div className = "register">
@@ -65,7 +78,7 @@ export default class Register extends Component{
                                 </div>
                                 <div className="element">
                                     <label>Student Id</label>
-                                    <input type="text" name= "studentId" value={this.props.data.studentID} onChange={this.onInputChange}></input>
+                                    <input type="text" value={this.props.data.studentID}></input>
                                 </div>
                                 <div className="element divider">
                                     <label>University</label>
@@ -84,7 +97,7 @@ export default class Register extends Component{
                     </div>
             );
         } else {
-            return React.cloneElement(React.Children.only(this.props.children), {usr: this.state.usr, studentId: this.state.studentId, studentName: this.state.studentName});
+            return React.cloneElement(React.Children.only(this.props.children), {usr: this.state.usr, studentId: this.props.data['studentID'], studentName: this.state.studentName});
         }
     }
 }

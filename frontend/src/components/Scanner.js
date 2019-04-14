@@ -64,12 +64,12 @@ class Scanner extends Component {
           contentType: false,
           success: function(res) {
             
-            if((res.studentUni == "0" || res.studentUni == "1") && res.studentID != null) {
+            if((res.studentUni == "0" || res.studentUni == "1") && res.studentID != 'null') {
               self.renderChild();
             } else {
               alert("You have to be Uni or RMIT to access");
             }
-            if(res.studentID == null) {
+            if(res.studentID == 'null') {
               alert("The picture is blurry, please scan again")
             }
           },

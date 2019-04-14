@@ -11,7 +11,7 @@ export default class Qrcode extends Component{
         this.state = {
             toChild:  false,
             testUser: this.props.userList,
-            qr: "https://api.qrserver.com/v1/create-qr-code/?size=800x800&data=" + this.props.usr.studentId
+            qr: "https://api.qrserver.com/v1/create-qr-code/?size=800x800&data=" + this.props.studentId
         }
         this.renderChild = this.renderChild.bind(this);
         
@@ -23,6 +23,7 @@ export default class Qrcode extends Component{
     }
 
     componentDidMount() {
+        console.log(this.props.usr);
         var self = this;
         var i = 0;
         setInterval(function () {

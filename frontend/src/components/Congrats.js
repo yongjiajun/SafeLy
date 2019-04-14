@@ -124,7 +124,7 @@ export default class Congrats extends Component{
             )
         }
         else {
-            return React.cloneElement(React.Children.only(this.props.children), {userList: this.state.testUser, usr: this.props.usr});
+            return React.cloneElement(React.Children.only(this.props.children), {userList: this.state.testUser, usr: this.props.usr, studentId: this.props.studentId});
         }
     }
 }

@@ -65,7 +65,7 @@ export default class Direction extends Component{
                 </div>
             )
         } else {
-            return React.cloneElement(React.Children.only(this.props.children), {userList: this.props.userList, usr: this.props.usr});
+            return React.cloneElement(React.Children.only(this.props.children), {userList: this.props.userList, usr: this.props.usr, studentId = this.props.studentId});
         }
         
     }
