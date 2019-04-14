@@ -48,7 +48,7 @@ while(cap.isOpened()):
           hull = cv2.convexHull(np.array([point for point in points], dtype=np.float32))
           hull = list(map(tuple, np.squeeze(hull)))
         else : 
-          hull = points;
+          hull = points
          
         # Number of points in the convex hull
         n = len(hull)     

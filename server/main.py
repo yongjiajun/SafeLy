@@ -34,7 +34,8 @@ if __name__ == "__main__":
             'requester': True,
             'checkedIn': False,
             'verify': False, 
-            'datetime': '00:50:00'
+            'datetime': '00:50:00',
+            'members': 3
          },
          {
             'sessionID': 1,
@@ -43,7 +44,8 @@ if __name__ == "__main__":
             'requester': True,
             'checkedIn': False,
             'verify': False, 
-            'datetime': '00:00:00'
+            'datetime': '00:00:00',
+            'members': 3
          },
          {
             'sessionID': 1,
@@ -52,7 +54,8 @@ if __name__ == "__main__":
             'requester': True,
             'checkedIn': False,
             'verify': False, 
-            'datetime': '00:00:00'
+            'datetime': '00:00:00',
+            'members': 3
          }
         
         ]
@@ -61,11 +64,14 @@ if __name__ == "__main__":
         if data[i]['sessionID'] not in sessionDict:
             createSession(data[i]['sessionID'],data[i]['datetime'], data[i]['verify'])
         
-        addMember(data[i]['studentID'], data[i]['studentName'], data[i]['requester'], data[i]['sessionID'] )
+        addMember(data[i]['studentID'], data[i]['studentName'], data[i]['requester'], data[i]['sessionID'])
         
         createSession(3,data[i]['datetime'], data[i]['verify'])
         
-        
+     
+    for key in sessionDict:
+        print(sessionDict[key].verifySession())
+
     print(sessionDict[1].studentArray[2].id)
         
         #for key,value in data[i].items():
