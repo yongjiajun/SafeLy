@@ -3,24 +3,25 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'
 import '../assets/register.css'
 export default class Register extends Component{
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             toChild: false,
             usr: {
                 sessionId: '1',
                 studentName: null,
-                studentId: null,
+                studentId: this.props.data.studentID,
                 requester: true,
                 checkedIn: false,
                 verify: true,
                 datetime: null,
             },
+            data: this.props.data
         }
         this.renderChild = this.renderChild.bind(this);
         this.onInputChange = this.onInputChange.bind(this);
+        
     }
-
     renderChild() {
         this.setState({toChild: true});
     }
@@ -35,6 +36,9 @@ export default class Register extends Component{
                             <FontAwesomeIcon icon={faMapMarkerAlt} />
                             SafeLy
                         </h1>
+                        <div className="alert alert-success" role="alert">
+                            <b>Your student card is valid !</b> Just a few more steps to be safe!
+                        </div>
                         <div className = "container">
                             <div className = "header">
 
@@ -61,15 +65,13 @@ export default class Register extends Component{
                                 </div>
                                 <div className="element">
                                     <label>Student Id</label>
-                                    <input type="text" name= "studentId" onChange={this.onInputChange}></input>
+                                    <input type="text" name= "studentId" value={this.props.data.studentID} onChange={this.onInputChange}></input>
                                 </div>
                                 <div className="element divider">
                                     <label>University</label>
-                                    <select name="uni">
-                                        <option value="rmit">RMIT</option>
-                                        <option value="unimelb">University of Melbourne</option>
 
-                                    </select>
+                                    <input type="text" value={this.props.data.studentUni == 0 ? "University of Melbourne" : "RMIT"} disabled/>
+
                                 </div>
 
                                 <div className="element">

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'
+import { faMapMarkerAlt, faQrcode } from '@fortawesome/free-solid-svg-icons'
 import '../assets/login.css'
 export default class Login extends Component{
     constructor() {
@@ -21,7 +21,7 @@ export default class Login extends Component{
                         <FontAwesomeIcon icon={faMapMarkerAlt}/>
                         SafeLy
                     </h1>
-                    <button className="login-button bigBtn" onClick={this.renderChild}>LOG IN</button>
+                <button className="login-button bigBtn" onClick={this.renderChild}> <FontAwesomeIcon icon={faQrcode}/> SCAN YOUR STUDENT ID TO LOG IN</button>
                 </div>
             );
         } else {

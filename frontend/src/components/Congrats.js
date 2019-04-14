@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMapMarkerAlt, faCheck } from '@fortawesome/free-solid-svg-icons'
 import MapContainer from './Map';
-import Loading from '../assets/img/loading.svg'
 import '../assets/register.css';
 import openSocket from 'socket.io-client';
+import $ from 'jquery';
+import Loading from './Loading';
+import loadingImg from '../assets/img/loading.svg'
 
 const API = "http://10.25.130.83:5000";
 const socket = openSocket(API);
@@ -12,11 +14,12 @@ export default class Congrats extends Component{
     constructor(){
         super();
         this.state = {
+            loading: false,
             toChild: false,
             userList: []
         }
         this.renderChild = this.renderChild.bind(this);
-
+        this.fetchData = this.fetchData.bind(this);
     }
 
     renderChild() {
@@ -24,19 +27,44 @@ export default class Congrats extends Component{
             toChild: true,
         });
     }
+    componentWillMount() {
+    }
+    fetchData() {
+        var self = this;
+        $.ajax({
+            type: 'GET',
+            crossDomain: true,
+            url: API + '/getUser',
+            processData: false,
+            contentType:'application/json',
+          
+            success: function(res) {
+                var newUsers = self.state.userList.slice();
+                for(let i = 0; i < res.length; i++) {
+                    newUsers.push(res[i]);
+                }
+                self.setState({userList: newUsers, loading: false});
 
-    componentDidMount() {
-        fetch(API, {
-            method: 'post',
-            headers: {
-              'Accept': 'application/json, text/plain, */*',
-              'Content-Type': 'application/json'
+                console.log(newUsers);
+                
             },
-            body: JSON.stringify({a: 7, str: 'Some string: &=&'}),
-            mode: 'cors'
-            }).then(res=>res.json())
-        .then(res => console.log(res));
-        socket.emit("my event", this.props.usr);
+            error: function(err) {
+              console.log(err);
+            }
+        }).done(function(data) {
+            // print the output from the upload.php script
+            console.log(data);
+            
+        });
+    }
+    componentDidMount() {
+        socket.emit("add user", this.props.usr);
+        this.setState({
+            loading: true,
+        })
+        this.fetchData();
+        socket.emit("refresh",() => {this.fetchData()});
+
     }
 
 
@@ -45,8 +73,8 @@ export default class Congrats extends Component{
     render(){
         if(this.state.toChild == false) {
             return(
-                
                 <div className="selecttime">
+                    <Loading status = {this.state.loading}/>
                     <h1 className="logo-title">
                                 <FontAwesomeIcon icon={faMapMarkerAlt} />
                                 SafeLy
@@ -59,9 +87,10 @@ export default class Congrats extends Component{
                         <div className="sml-container">
                             <h3>Congratulation!</h3>
                             <div className="userList">
-                                <div className="user" style={{marginRight: "1em"}}></div>
-                                <div className="user" style={{marginRight: "1em"}}></div>
-                                <div className="user" style={{marginRight: "1em"}}></div>
+                                {this.state.userList.map((each,i) => {
+                                   return (<div className="user" key={i}/>)
+                                })}
+
                             </div>
 
                             <h3 className="blueTheme">These are your buddies :)</h3>
@@ -75,13 +104,13 @@ export default class Congrats extends Component{
                     <MapContainer/>
                     <div className="sml-container-rnd">
                             <h4>We're finding the nearest meet up place</h4>
-                            <img src={Loading}/>
+                            <img src={loadingImg}/>
                     </div>
                 </div>
             )
         }
         else {
-            return React.cloneElement(React.Children.only(this.props.children), {});
+            return React.cloneElement(React.Children.only(this.props.children), {userList: this.state.userList});
         }
     }
 }

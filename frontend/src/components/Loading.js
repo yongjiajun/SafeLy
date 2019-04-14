@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import {loadPic} from "../assets/img/loading.svg";
+import loading from "../assets/img/DoubleLoad.svg";
+
 import "../assets/loading.css";
 
 export default class Loading extends Component{
-    constructor(status) {
+    constructor(props) {
+        super(props);
         this.state = {
-            status: status
+            status: this.props.status
         }
     }
 
@@ -13,9 +15,11 @@ export default class Loading extends Component{
         if(this.state.status == true) {
             return(
                 <div className = "Loading">
-                    <img src={loadPic}/>
+                    <img src={loading}/>
                 </div>
             );
+        } else {
+            return (<div></div>);
         }
     }
 }

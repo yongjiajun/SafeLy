@@ -34,27 +34,21 @@ export default class Direction extends Component{
                         <button className="round-btn medium" onClick = {this.renderChild }>I AM ARRIVED</button>
                         <div className="bottom-container">
                             <div className="status-container">
-                                <div className="user">
-                                    <button className="user-checkbox">
-                                    <FontAwesomeIcon icon={faCheck}/></button>
-                                </div>
-                                <div className="status arrived">Arrived</div>
+                                {this.props.userList.map(each => {
+                                    return (
+                                        <div>
+                                        <div className="user">
+                                            <button className="user-checkbox">
+                                                {(each.checkIn) ? <FontAwesomeIcon icon={faCheck}/> : null}
+                                            </button>
+                                        </div>
+                                        {(each.checkIn) ? <div className="status arrived">Arrived</div> :  <div className="status otw">On the way</div>}
+                                        </div>
+                                    );
+                                })}
+                              
                             </div>
-                            <div className="status-container">
-                                 <div className="user">
-                                    <button className="user-checkbox">
-                                    <FontAwesomeIcon icon={faCheck}/></button>
-                                </div>
-                                <div className="status arrived">Arrived</div>
-    
-                            </div>
-                            <div className="status-container">
-                                <div className="user">
-                                    <button className="user-checkbox">
-                                    <FontAwesomeIcon icon={faCheck}/></button>
-                                </div>
-                                <div className="status otw">On the way</div>
-                            </div>
+                          
                         </div>
                         
     
