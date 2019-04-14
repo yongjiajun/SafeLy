@@ -5,6 +5,7 @@ import numpy as np
 import cv2
 import time
 import json
+import appa
 
 # get the webcam:  
 cap = cv2.VideoCapture(0)
@@ -67,13 +68,20 @@ while(cap.isOpened()):
         dataType = decodedObject.type
         data = decodedObject.data
 
-        QRcode = {
-          'Data Type:': decodedObject.type,
-          'Data' : decodedObject.data
-        }
+        QRcode = {'sessionId': '1', 
+          'studentName': 'Thang Pham', 
+          'studentId': '940814', 
+          'requester': True, 
+          'checkedIn': False, 
+          'verify': True, 
+          }
         
-        with open('QRcode.json', 'w') as f:
-            json.dump(str(QRcode), f)
+          
+       
+       # with open('QRcode.json', 'w') as f:
+           # json.dump(QRcode, f)
+
+        appa.changeUser(QRcode)
 
         QRcode = str(decodedObject.data)
 

@@ -11,12 +11,14 @@ import os
 from Student import *
 from Session import *
 
+
 studentArray = []
 sessionDict = {}
 app = Flask(__name__, static_url_path='/static')
 app.config['SECRET_KEY'] = 'vnkdjnfjknfl1232#'
 socketio = SocketIO(app)
 cors = CORS(app, support_credentials=True, resources={r"/api/*": {"origins": "*"}})
+
 
 def createSession(sessionID, date, guardRequested):
     session = Session(sessionID, date, guardRequested)
@@ -66,23 +68,23 @@ def handle_add_event(jsonPassed, methods=['POST']):
     addMember(student['studentID'], student['studentName'], student['requester'], student['sessionID'])
     
     
-    print(student)
+    socketio.emit('refresh', jsonPassed)
 
-@socketio.on('checkIn') #listen to a check in event, if a student check in then emit the refresh.
-def handle_refresh_event(jsonPassed, methods=['POST']):
+
+def changeUser(jsonPassed, methods=['POST']):
     
-    sessionid = jsonPassed['sessionId']
-    array = sessionDict[sessionid]
+    studentid = jsonPassed['studentId']
+    # array = studentArray
 
-    for s in range(len(array)):
-        if jsonPassed['studentId'] == s.id:
+    for s in studentArray:
+        if student == s.id:
             if(s.verified == False):
                 s.switchStatus()
 
     socketio.emit('refresh', studentArray) #send back all users.
-    
-    
 
+
+    
 @socketio.on('connect')
 def handle_connect_event():
     for key in sessionDict:
