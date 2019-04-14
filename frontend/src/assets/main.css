@@ -519,3 +519,12 @@ button.centerbtn.success svg{
     width: fit-content;
     margin: 0 auto;
 }
+
+.grid-sys-6{
+    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 1.5em;
+    width: fit-content;
+    margin: 0 auto;
+}

@@ -6,10 +6,11 @@ import MapDirection from './MapDirection';
 import '../assets/MapDirection.css'
 
 export default class Direction extends Component{
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             toChild: false,
+            testUser: this.props.userList
         }
         this.renderChild = this.renderChild.bind(this);
     }
@@ -33,8 +34,8 @@ export default class Direction extends Component{
                     <div className="bottomUI">
                         <button className="round-btn medium" onClick = {this.renderChild }>I AM ARRIVED</button>
                         <div className="bottom-container">
-                            <div className="status-container grid-sys">
-                                {this.props.userList.map(each => {
+                            <div className="status-container grid-sys-6">
+                                {this.state.testUser.map(each => {
                                     return (
                                         <div>
                                         <div className="user">
@@ -64,7 +65,7 @@ export default class Direction extends Component{
                 </div>
             )
         } else {
-            return React.cloneElement(React.Children.only(this.props.children), {userList: this.props.userList});
+            return React.cloneElement(React.Children.only(this.props.children), {userList: this.props.userList, usr: this.props.usr});
         }
         
     }

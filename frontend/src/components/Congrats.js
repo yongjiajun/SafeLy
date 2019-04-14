@@ -3,20 +3,22 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMapMarkerAlt, faCheck } from '@fortawesome/free-solid-svg-icons'
 import MapContainer from './Map';
 import '../assets/register.css';
-import openSocket from 'socket.io-client';
+// import openSocket from 'socket.io-client';
 import $ from 'jquery';
 import Loading from './Loading';
 import loadingImg from '../assets/img/loading.svg'
 
-const API = "http://10.25.130.83:5000";
-const socket = openSocket(API);
+// const API = "http://10.25.130.83:5000";
+const API = "https://10.25.130.237:5000";
+// const socket = openSocket(API);
 export default class Congrats extends Component{
     constructor(){
         super();
         this.state = {
             loading: false,
             toChild: false,
-            userList: []
+            userList: [],
+            testUser: []
         }
         this.renderChild = this.renderChild.bind(this);
         this.fetchData = this.fetchData.bind(this);
@@ -34,7 +36,7 @@ export default class Congrats extends Component{
         $.ajax({
             type: 'GET',
             crossDomain: true,
-            url: API + '/getUser',
+            url: API + '/getUsers',
             processData: false,
             contentType:'application/json',
           
@@ -58,13 +60,25 @@ export default class Congrats extends Component{
         });
     }
     componentDidMount() {
-        socket.emit("add user", this.props.usr);
+        var self = this;
+        // socket.emit("add user", this.props.usr);
         this.setState({
             loading: true,
         })
         this.fetchData();
-        socket.emit("refresh",() => {this.fetchData()});
-        socket.emit("disconnect",this.props.usr);
+        // socket.emit("refresh",() => {this.fetchData()});
+        // socket.emit("disconnect",this.props.usr);
+        var i = 0;
+        setInterval(function () {
+            if(i <= 6) {
+                var testUser = self.state.userList.slice(0,i);
+                i++;
+                self.setState({testUser: testUser});
+            }
+            if( i > 6) {
+                self.renderChild();
+            }
+        },200)
     }
 
 
@@ -87,7 +101,7 @@ export default class Congrats extends Component{
                         <div className="sml-container">
                             <h3>Congratulation!</h3>
                             <div className="userList">
-                                {this.state.userList.map((each,i) => {
+                                {this.state.testUser.map((each,i) => {
                                    return (<div className="user" key={i}/>)
                                 })}
 
@@ -110,7 +124,7 @@ export default class Congrats extends Component{
             )
         }
         else {
-            return React.cloneElement(React.Children.only(this.props.children), {userList: this.state.userList});
+            return React.cloneElement(React.Children.only(this.props.children), {userList: this.state.testUser, usr: this.props.usr});
         }
     }
 }

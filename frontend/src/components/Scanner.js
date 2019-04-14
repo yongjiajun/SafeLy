@@ -8,12 +8,12 @@ class Scanner extends Component {
   constructor() {
     super();
     this.state = {
-      toChild: true,
-      // data: [],
-      data: {
-        studentID: '940814',
-        studentUni: '0'}
-      ,
+      toChild: false,
+      data: [],
+      // data: {
+      //   studentID: '940814',
+      //   studentUni: '0'}
+      // ,
       loading: false
     }
     this.postFile = this.postFile.bind(this);

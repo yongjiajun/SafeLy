@@ -6,16 +6,44 @@ import MapContainer from './Map';
 import '../assets/register.css'
 
 export default class Qrcode extends Component{
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {
-            toChild:  true,
+            toChild:  false,
+            testUser: this.props.userList,
+            qr: "https://api.qrserver.com/v1/create-qr-code/?size=800x800&data=" + this.props.usr.studentId
         }
+        this.renderChild = this.renderChild.bind(this);
+        
     }
     renderChild() {
         this.setState({
             toChild: true
         })
+    }
+
+    componentDidMount() {
+        var self = this;
+        var i = 0;
+        setInterval(function () {
+            if(i <= 6) {
+                var test = self.state.testUser.slice();
+                test.map(each => {
+                    setTimeout(function () {
+                        each.checkIn = true
+                    },300)
+                });
+                i++;
+                self.setState({testUser: test});
+            }
+            if( i === 6) {
+                self.renderChild();
+            }
+        },1000)
+        setInterval(function () {
+            self.renderChild();
+        },10000);
+
     }
     render(){
         if(this.state.toChild == false) {
@@ -32,10 +60,10 @@ export default class Qrcode extends Component{
                             Scan this QR code below at the scanner :).
                         </div>
                         <div className="qr-container">
-                            <img id="qrcode" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/QR_code_for_mobile_English_Wikipedia.svg/800px-QR_code_for_mobile_English_Wikipedia.svg.png"/>
+                            <img id="qrcode" src={this.state.qr}/>
                         </div>
                         <div className="sml-container-sqr grid-sys">
-                             {this.props.userList.map(each => {
+                             {this.state.testUser.map(each => {
                                     return (
                                         <div className="status-container qr-arrive">
                                             <div>
