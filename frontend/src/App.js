@@ -16,17 +16,16 @@ class App extends Component {
 
   constructor() {
     super();
-    // document.body.addEventListener("click", function() {
-    //   var
-    //         el = document.documentElement
-    //       , rfs =
-    //              el.requestFullScreen
-    //           || el.webkitRequestFullScreen
-    //           || el.mozRequestFullScreen
-    //   ;
-    //   rfs.call(el);
-    // });
-
+    document.body.addEventListener("click", function() {
+      var
+            el = document.documentElement
+          , rfs =
+                 el.requestFullScreen
+              || el.webkitRequestFullScreen
+              || el.mozRequestFullScreen
+      ;
+      rfs.call(el);
+    });
   }
 
   render() {

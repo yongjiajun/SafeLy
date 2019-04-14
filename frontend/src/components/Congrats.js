@@ -64,7 +64,7 @@ export default class Congrats extends Component{
         })
         this.fetchData();
         socket.emit("refresh",() => {this.fetchData()});
-
+        socket.emit("disconnect",this.props.usr);
     }
 
 
