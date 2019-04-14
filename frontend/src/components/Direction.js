@@ -33,7 +33,7 @@ export default class Direction extends Component{
                     <div className="bottomUI">
                         <button className="round-btn medium" onClick = {this.renderChild }>I AM ARRIVED</button>
                         <div className="bottom-container">
-                            <div className="status-container">
+                            <div className="status-container grid-sys">
                                 {this.props.userList.map(each => {
                                     return (
                                         <div>
@@ -64,7 +64,7 @@ export default class Direction extends Component{
                 </div>
             )
         } else {
-            return React.cloneElement(React.Children.only(this.props.children), {});
+            return React.cloneElement(React.Children.only(this.props.children), {userList: this.props.userList});
         }
         
     }

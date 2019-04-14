@@ -9,7 +9,7 @@ export default class Qrcode extends Component{
     constructor(){
         super();
         this.state = {
-            toChild:  false,
+            toChild:  true,
         }
     }
     renderChild() {
@@ -34,30 +34,49 @@ export default class Qrcode extends Component{
                         <div className="qr-container">
                             <img id="qrcode" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/QR_code_for_mobile_English_Wikipedia.svg/800px-QR_code_for_mobile_English_Wikipedia.svg.png"/>
                         </div>
-                        <div className="sml-container-sqr">
-                            <div className="userWrapper">
-                                <div className="status-container qr-arrive">
-                                    <div className="user">
-                                        <button className="user-checkbox">
-                                        <FontAwesomeIcon icon={faCheck}/></button>
+                        <div className="sml-container-sqr grid-sys">
+                             {this.props.userList.map(each => {
+                                    return (
+                                        <div className="status-container qr-arrive">
+                                            <div>
+                                                <div className="user">
+                                                    <button className="user-checkbox">
+                                                        {(each.checkIn) ? <FontAwesomeIcon icon={faCheck}/> : null}
+                                                    </button>
+                                                </div>
+                                            {(each.checkIn) ? <div className="status arrived">Arrived</div> :  <div className="status otw">On the way</div>}
+                                            </div>
+                                        </div>
+                                    );
+                                })}
+                                {/* <div className="status-container qr-arrive">
+                                    <div>
+                                        <div className="user">
+                                            <button className="user-checkbox">
+                                            <FontAwesomeIcon icon={faCheck}/></button>
+                                        </div>
+                                        <div class="status arrived">Arrived</div>
                                     </div>
-                                    <div class="status arrived">Arrived</div>
+                                    
                                 </div>
                                 <div className="status-container qr-arrive">
-                                    <div className="user">
-                                        <button className="user-checkbox">
-                                        <FontAwesomeIcon icon={faCheck}/></button>
+                                    <div>
+                                        <div className="user">
+                                            <button className="user-checkbox">
+                                            <FontAwesomeIcon icon={faCheck}/></button>
+                                        </div>
+                                        <div class="status arrived">Arrived</div>
                                     </div>
-                                    <div class="status arrived">Arrived</div>
                                 </div>
                                 <div className="status-container qr-arrive">
-                                    <div className="user">
-                                        <button className="user-checkbox">
-                                        <FontAwesomeIcon icon={faCheck}/></button>
+                                    <div>
+                                        <div className="user">
+                                            <button className="user-checkbox">
+                                            <FontAwesomeIcon icon={faCheck}/></button>
+                                        </div>
+                                        <div class="status arrived">Arrived</div>
                                     </div>
-                                    <div class="status otw">On the way</div>
-                                </div>
-                            </div>
+                                </div> */}
                         </div>
                         <div className="outter">
                             <div className="securetext">Security Guard</div>
@@ -75,7 +94,7 @@ export default class Qrcode extends Component{
                 </div>
             )
         } else {
-            return React.cloneElement(React.Children.only(this.props.children), {});
+            return React.cloneElement(React.Children.only(this.props.children), {userList: this.props.userList});
         }
        
     }
