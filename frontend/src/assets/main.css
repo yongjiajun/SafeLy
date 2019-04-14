@@ -1,5 +1,24 @@
 /* Main stores all the color and general theme */
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,600,700,800');
+.alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    box-shadow: 0px 3px 40px rgba(0,0,0,.17);
+}
+
+.alert {
+    position: relative;
+    display: block;
+    padding: .75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    width: 340px;
+    margin: 0 auto;
+    text-align: center;
+}
+
 * {
     --mainBlue: #3B55E6;
     --subBlue: #7E85AA;
@@ -64,7 +83,6 @@ button.bigBtn {
     border: 0;
     box-shadow: 0px 3px 6px rgba(0,0,0,.17);
     font-weight: 700;
-    letter-spacing: .2em;
 }
 
 
@@ -84,7 +102,7 @@ button:focus {
     width: fit-content;
     min-height: 100%;
     max-width: 350px;
-    margin: 0 auto;
+    margin: 1em auto;
     border-radius: 5px;
     box-shadow: 0px 3px 40px rgba(0,0,0,.17);
 }
@@ -310,6 +328,9 @@ select:focus{
 
     margin: 0 auto;
     align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1.5em;
 }
 
 button.centerbtn.success{
@@ -371,7 +392,7 @@ button.centerbtn.success svg{
     display: inline-block;
     text-align: center;
     width: fit-content;
-    margin-right: 1em;
+    align-items: center;
 }
 
 .status-container .status{
@@ -437,7 +458,7 @@ button.centerbtn.success svg{
 }
 .outter{
     width: fit-content;
-    margin: 0 auto;
+    margin: 1em auto;
     text-align: center;
     font-size: .9em;
     font-weight: 600;
@@ -488,4 +509,13 @@ button.centerbtn.success svg{
     margin-top: 1em;
     text-transform: uppercase;
     color: white;
+}
+
+.grid-sys{
+    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1.5em;
+    width: fit-content;
+    margin: 0 auto;
 }

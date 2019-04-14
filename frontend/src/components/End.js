@@ -23,27 +23,21 @@ export default class End extends Component{
 					</div>
                     <div className="sml-container-sqr">
                         <div className="userWrapper">
-                            <div className="status-container qr-arrive">
-                                <div className="user">
-                                    <button className="user-checkbox">
-                                    <FontAwesomeIcon icon={faCheck}/></button>
-                                </div>
-                                <div class="status arrived">Arrived</div>
-                            </div>
-                            <div className="status-container qr-arrive">
-                                <div className="user">
-                                    <button className="user-checkbox">
-                                    <FontAwesomeIcon icon={faCheck}/></button>
-                                </div>
-                                <div class="status arrived">Arrived</div>
-                            </div>
-                            <div className="status-container qr-arrive">
-                                <div className="user">
-                                    <button className="user-checkbox">
-                                    <FontAwesomeIcon icon={faCheck}/></button>
-                                </div>
-                                <div class="status arrived">Arrived</div>
-                            </div>
+                        {/* <div className="status-container qr-arrive"> */}
+                            {this.props.userList.map(each => {
+                                return (
+                                    <div className="status-container qr-arrive">
+                                        <div>
+                                            <div className="user">
+                                                <button className="user-checkbox">
+                                                    {(each.checkIn) ? <FontAwesomeIcon icon={faCheck}/> : null}
+                                                </button>
+                                            </div>
+                                        {(each.checkIn) ? <div className="status arrived">Arrived</div> :  <div className="status otw">On the way</div>}
+                                        </div>
+                                    </div>
+                                );
+                            })}
                         </div>
                     </div>
                     <div className="instruction">

@@ -6,13 +6,14 @@ import MapContainer from './Map';
 import '../assets/register.css'
 
 export default class SelectTime extends Component{
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {
             toChild: false,
             time: new Date(),
             timeInterval: null,
-            stop: false
+            stop: false,
+            usr: this.props.usr
         }
         this.clearTime = this.clearTime.bind(this);
         this.renderChild = this.renderChild.bind(this);
@@ -25,7 +26,6 @@ export default class SelectTime extends Component{
             timeInterval: setInterval(function(){
                 self.setState({time: new Date()});
             },1000),
-            usr: this.props.usr
     });
     }
 
@@ -36,7 +36,6 @@ export default class SelectTime extends Component{
             usr: {
                 ...prevState.usr,
                 datetime: this.state.time,
-                studentId: this.props.studentId,
                 studentName: this.props.studentName
             }
         }));
