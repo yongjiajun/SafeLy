@@ -23,3 +23,7 @@
 
 - Pair, Verify, Go.
 
+### Technologies Used:
+
+- Flask, REST API, React.js, Express, SocketIO, Google Cloud Vision (Optical Character Recognition), QR Code, JSON, base64, OpenCV.
+
