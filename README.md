@@ -25,5 +25,5 @@
 
 ### Technologies Used:
 
-- Flask, REST API, React.js, Express, SocketIO, Google Cloud Vision (Optical Character Recognition), QR Code, JSON, base64, OpenCV.
+- Flask, REST API, React.js, Express, SocketIO, Google Cloud Vision (Optical Character Recognition), QR Code, JSON, base64, OpenCV, Google Maps API
 
