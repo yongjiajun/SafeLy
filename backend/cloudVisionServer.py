@@ -23,8 +23,8 @@ def image():
     print(image)
     image_string = base64.b64decode(image)
     open('studentCard.jpg', 'wb').write(image_string)
-    os.system("chmod u+x exe.sh")
-    os.system("./exe.sh")
+    os.system("chmod u+x cloudVisionexe.sh")
+    os.system("./cloudVisionexe.sh")
     input = open('results.json')
     datastore = json.load(input)
     jsonToSend = {}

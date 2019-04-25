@@ -34,10 +34,6 @@ def addMember(studentID, name, request, sessionID):
     
     return
 
-@app.route('/')
-def sessions():
-    return render_template('session.html')
-
 def messageReceived(methods=['GET']):
     print('message was received!!!')
 

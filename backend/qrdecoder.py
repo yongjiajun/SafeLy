@@ -5,7 +5,7 @@ import numpy as np
 import cv2
 import time
 import json
-import appa
+import socketServer
 
 # get the webcam:  
 cap = cv2.VideoCapture(0)
@@ -81,7 +81,7 @@ while(cap.isOpened()):
        # with open('QRcode.json', 'w') as f:
            # json.dump(QRcode, f)
 
-        appa.changeUser(QRcode)
+        socketServer.changeUser(QRcode)
 
         QRcode = str(decodedObject.data)
 
