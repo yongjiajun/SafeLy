@@ -1,6 +1,6 @@
-<h1 align="center">SafeLy - a project for CodeBrew Hackathon 2019</h1> 
+<h1>SafeLy - a project for CodeBrew Hackathon 2019</h1> 
 
-<h2 align="center">Engaging our community  to keep each safe</h2>
+<h2>Engaging our community  to keep each safe</h2>
 
 
 
